@@ -36,13 +36,31 @@ function App() {
   // Função para rolar até o final da tela sempre que a lista de mensagens mudar
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      messagesEndRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
     }
   }, [messages]);
 
   return (
-    <main className="flex flex-col">
-      <div className="flex-1 overflow-y-scroll px-4 py-4 pb-20" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+    <main
+      className="flex flex-col"
+      style={{
+        backgroundColor: "rgb(17, 18, 23)",
+        minHeight: "100vh",
+      }}
+    >
+      <div
+        className="flex-1 px-4 py-4  overflow-auto" // Usa overflow-auto para permitir rolagem apenas quando necessário
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          backgroundColor: "rgb(17, 18, 23)",
+          overflowY: "auto", // Mantém a rolagem no chat sem afetar a página principal
+          maxHeight: "calc(100vh - 50px)", // Define um limite para o scroll do chat
+        }}
+      >
         <div className="space-y-4 m-8">
           {messages.map((message) => (
             <ChatMessage
@@ -54,14 +72,14 @@ function App() {
           ))}
           {isTyping && <TypingIndicator />}{" "}
           {/* Exibe o TypingIndicator quando o bot está digitando */}
-          <div ref={messagesEndRef} />
+          <div ref={messagesEndRef} style={{ height: "10px" }} />
         </div>
       </div>
       <div
-        className="fixed bottom-0 inset-x-0 bg-white bg-opacity-50 backdrop-blur-md pb-8 me-4"
-        style={{ zIndex: 1 }}
+        className="fixed bottom-0 inset-x-0  bg-opacity-50 backdrop-blur-md pb-2"
+        style={{ zIndex: 1,  }}
       >
-        <div className="mx-10 pb-4">
+        <div className="mx-10 pb-2">
           <ChatInput onSendMessage={handleSendMessage} disabled={isTyping} />
         </div>
       </div>

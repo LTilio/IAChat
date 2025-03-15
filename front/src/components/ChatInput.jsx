@@ -30,7 +30,7 @@ export const ChatInput = ({ onSendMessage, disabled }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center gap-2 p-1 pt-4 border-t border-gray-200"
+      className="flex items-center gap-2 p-1 pt-5 border-t border-gray-200"
     >
       <textarea
         ref={textareaRef}

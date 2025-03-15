@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Oculta a barra de rolagem em navegadores baseados no WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Oculta a barra de rolagem no Firefox */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
