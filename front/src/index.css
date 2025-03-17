@@ -12,3 +12,12 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.custom-yellow {
+  background-color: rgb(250, 222, 42); /* Amarelo suave */
+}
+
+.custom-yellow-hover {
+  background-color: rgba(250, 222, 42, 0.8); /* Hover com opacidade reduzida */
+}
+

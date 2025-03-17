@@ -40,30 +40,30 @@ export const ChatInput = ({ onSendMessage, disabled }) => {
         placeholder="Type your message..."
         disabled={disabled}
         rows={1}
-        className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-gray-100 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-200 disabled:opacity-50 resize-none"
+        className="flex-1 px-4 py-2 rounded-lg border border-gray-300 bg-gray-100 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-custom-yellow focus:ring-1 focus:ring-custom-yellow disabled:opacity-50 resize-none"
         style={{
           minHeight: "40px",
           maxHeight: "200px",
           paddingInline: "20px",
-          overflowY: "scroll", 
-          scrollbarWidth: "none", 
-          msOverflowStyle: "none", 
+          overflowY: "scroll",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
       />
       {/* Estilo para esconder a barra de rolagem no Chrome, Safari e Opera */}
       <style>
         {`
-          textarea::-webkit-scrollbar {
-            display: none;
-          }
-        `}
+        textarea::-webkit-scrollbar {
+          display: none;
+        }
+      `}
       </style>
       <button
         type="submit"
         disabled={!message.trim() || disabled}
-        className="p-2 rounded-lg bg-amber-200 text-white hover:bg-yellow-200 focus:outline-none focus:ring-2 focus:ring-yellow-200 focus:ring-offset-2 disabled:opacity-50 disabled:hover:bg-yellow-500 transition-colors"
+        className="p-2 rounded-lg bg-custom-yellow custom-black hover:bg-custom-yellow-hover focus:outline-none focus:ring-2 focus:ring-custom-yellow focus:ring-offset-2 focus:ring-offset-custom-black disabled:opacity-70 disabled:bg-custom-yellow-disabled transition-colors"
       >
-        <IoSend size={23} />
+        <IoSend size={23} className="text-current" /> {/* Ícone branco */}
       </button>
     </form>
   );
